@@ -10,7 +10,17 @@ namespace LogApi
     {
         public static void writeLog(string str)
         {
-            File.AppendAllText(@"c:\Logs\logapi.log", "text content" + Environment.NewLine);
+            //File.AppendAllText(@"c:\Logs\logapi.log", "text content" + Environment.NewLine);
+            //TextWriter writeFile = new StreamWriter(@"c:\Logs\logapi.log", str + Environment.NewLine);
+            string outputFile = @"c:\Logs\logapi.log";
+            using (StreamWriter writer =
+                new StreamWriter(outputFile, true))
+            {
+                writer.WriteLine(str);
+                writer.Flush();
+            }
+
+            
 
         }
     }
