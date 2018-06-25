@@ -58,7 +58,12 @@ namespace LogApi
             });
             if (!Directory.Exists(@"c:\logs"))
                 Directory.CreateDirectory(@"C:\Logs");
-            File.Create(@"c:\logs\logapi.log");
+            Repo.dt = DateTime.Now.ToString("yyyyMMdd hhmmss");
+            string dnow = @"c:\logs\logapi" + Repo.dt + ".log";
+            Repo.dnow = dnow;
+            var mf = File.Create(Repo.dnow);
+            mf.Close();
+
 
         }
     }
